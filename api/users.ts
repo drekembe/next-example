@@ -1,6 +1,6 @@
 import type { User } from './types';
 
-export async function fetchUsers(limit = 20, offset = 0): Promise<User[]> {
+export async function fetchUsers(offset = 0, limit = 20): Promise<User[]> {
   const resp = await fetch(`/api/users/?limit=${limit}&offset=${offset}`)
   const json = await resp.json()
   await new Promise(r => setTimeout(r, 300));
